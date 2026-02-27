@@ -4,15 +4,17 @@ import { getAuth, type Auth } from 'firebase/auth';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 🔥 Firebase Configuration — VendorCalc
+// All values are loaded from environment variables (.env file).
+// Never commit API keys to source control.
 // ─────────────────────────────────────────────────────────────────────────────
 const firebaseConfig = {
-    apiKey: "AIzaSyDMTRRmKooEQoDYhIFOpLNje9VcTJgl9rc",
-    authDomain: "vendorcalc-54e45.firebaseapp.com",
-    projectId: "vendorcalc-54e45",
-    storageBucket: "vendorcalc-54e45.firebasestorage.app",
-    messagingSenderId: "369726135971",
-    appId: "1:369726135971:web:050124dbb2be76d0dde916",
-    measurementId: "G-EG5LWLS9PV",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || '',
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || '',
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || '',
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '',
+    appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || '',
 };
 
 export const isFirebaseConfigured = !!firebaseConfig.apiKey;
